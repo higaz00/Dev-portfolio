@@ -1,0 +1,786 @@
+/* ============================================================
+   HERO SECTION — High-Impact Editorial & Technological Experience
+   ============================================================ */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background: var(--black-deep);
+  padding: 6.5rem var(--gutter) 2rem;
+  box-sizing: border-box;
+}
+
+/* Background grid & subtle ambient glow */
+.hero__grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__ambient-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  background: radial-gradient(circle, rgba(198, 255, 0, 0.06) 0%, rgba(5, 5, 5, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(60px);
+}
+
+/* ============================================================
+   MONUMENTAL WALL-TO-WALL BACKGROUND TYPOGRAPHY
+   ============================================================ */
+.hero__backdrop-typography {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.hero__backdrop-text {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(6.5rem, 19vw, 22rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: #121212;
+  text-shadow:
+    0 0 1px rgba(198, 255, 0, 0.15),
+    0 10px 40px rgba(0, 0, 0, 0.9);
+  display: block;
+  opacity: 0.85;
+}
+
+/* ============================================================
+   FLOATING MULTIPLAYER CURSOR ARROWS (From the Reference)
+   ============================================================ */
+.hero__floating-cursors {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero__cursor-item {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: cursor-float 6s ease-in-out infinite alternate;
+  opacity: 0.75;
+  transition: opacity 0.3s;
+}
+
+.hero__cursor-item svg {
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+}
+
+.hero__cursor-label {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.hero__cursor-item--1 {
+  top: 18%;
+  left: 28%;
+  animation-duration: 7s;
+  animation-delay: 0s;
+}
+.hero__cursor-item--1 svg { fill: #C6FF00; }
+.hero__cursor-item--1 .hero__cursor-label {
+  background: rgba(198, 255, 0, 0.15);
+  color: #C6FF00;
+  border: 1px solid rgba(198, 255, 0, 0.3);
+}
+
+.hero__cursor-item--2 {
+  top: 32%;
+  right: 24%;
+  animation-duration: 9s;
+  animation-delay: 1.5s;
+}
+.hero__cursor-item--2 svg { fill: #ffffff; }
+.hero__cursor-item--2 .hero__cursor-label {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero__cursor-item--3 {
+  bottom: 26%;
+  left: 45%;
+  animation-duration: 8s;
+  animation-delay: 2.2s;
+}
+.hero__cursor-item--3 svg { fill: #C6FF00; }
+.hero__cursor-item--3 .hero__cursor-label {
+  background: rgba(198, 255, 0, 0.12);
+  color: #C6FF00;
+  border: 1px solid rgba(198, 255, 0, 0.25);
+}
+
+.hero__cursor-item--4 {
+  top: 60%;
+  right: 32%;
+  animation-duration: 6.5s;
+  animation-delay: 0.8s;
+}
+.hero__cursor-item--4 svg { fill: #858585; }
+.hero__cursor-item--4 .hero__cursor-label {
+  background: rgba(133, 133, 133, 0.15);
+  color: #cccccc;
+  border: 1px solid rgba(133, 133, 133, 0.25);
+}
+
+@keyframes cursor-float {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(12px, -15px) rotate(2deg); }
+  100% { transform: translate(-8px, 10px) rotate(-1deg); }
+}
+
+/* ============================================================
+   MAIN COMPOSITION GRID (3 COLUMNS: LEFT, CENTER 3D, RIGHT)
+   ============================================================ */
+.hero__main-content {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1.15fr 0.9fr 0.95fr;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  flex: 1;
+}
+
+/* ------------------------------------------------------------
+   LEFT COLUMN — EDITORIAL TYPOGRAPHY & VALUE PROPOSITION
+   ------------------------------------------------------------ */
+.hero__left-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hero__eyebrow-line {
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero__greeting-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hero__script-greeting {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  color: var(--white);
+  line-height: 1;
+  transform: rotate(-3deg);
+  transform-origin: left bottom;
+  margin-bottom: -0.4rem;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.hero__monumental-name {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3.5rem, 7.5vw, 6.8rem);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.4rem;
+}
+
+.hero__name-dot {
+  color: var(--accent);
+}
+
+.hero__role-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(0.875rem, 1.4vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: -0.25rem;
+}
+
+.hero__bio-text {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--gray);
+  max-width: 440px;
+}
+
+.hero__bio-text strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.hero__actions-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.hero__primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--accent);
+  color: var(--black-deep);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1rem 1.8rem;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s var(--ease-out-expo),
+              box-shadow 0.3s var(--ease-out-expo),
+              background 0.3s;
+}
+
+.hero__primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(198, 255, 0, 0.35);
+  background: #d4ff2e;
+}
+
+.hero__primary-btn-arrow {
+  display: inline-block;
+  font-size: 1rem;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.hero__primary-btn:hover .hero__primary-btn-arrow {
+  transform: translateY(3px);
+}
+
+.hero__location-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+/* ------------------------------------------------------------
+   CENTER COLUMN — FH KINETIC MONOGRAM SCULPTURE
+   ------------------------------------------------------------ */
+.hero__center-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 380px;
+}
+
+.hero__sculpture-wrapper {
+  position: relative;
+  width: clamp(260px, 26vw, 360px);
+  height: clamp(260px, 26vw, 360px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__sculpture-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.7) 0%, rgba(10, 10, 10, 0.9) 100%);
+  border: 1px solid rgba(198, 255, 0, 0.2);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.8),
+    inset 0 0 40px rgba(198, 255, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+}
+
+.hero__sculpture-rings {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(198, 255, 0, 0.25);
+  animation: ring-spin 25s linear infinite;
+}
+
+.hero__ring--1 {
+  width: 85%;
+  height: 85%;
+}
+
+.hero__ring--2 {
+  width: 65%;
+  height: 65%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left-color: var(--accent);
+  animation-duration: 18s;
+  animation-direction: reverse;
+}
+
+.hero__ring--3 {
+  width: 45%;
+  height: 45%;
+  border: 1px dashed rgba(198, 255, 0, 0.15);
+  animation-duration: 14s;
+}
+
+@keyframes ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero__sculpture-monogram {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(4.5rem, 8vw, 7rem);
+  letter-spacing: -0.05em;
+  color: var(--white);
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(198, 255, 0, 0.35);
+  user-select: none;
+}
+
+.hero__sculpture-monogram span {
+  color: var(--accent);
+}
+
+.hero__sculpture-caption {
+  position: absolute;
+  bottom: 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(198, 255, 0, 0.1);
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid rgba(198, 255, 0, 0.25);
+}
+
+.hero__sculpture-corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--accent);
+  border-style: solid;
+  opacity: 0.6;
+}
+
+.hero__sculpture-corner--tl {
+  top: 12px;
+  left: 12px;
+  border-width: 1.5px 0 0 1.5px;
+}
+
+.hero__sculpture-corner--tr {
+  top: 12px;
+  right: 12px;
+  border-width: 1.5px 1.5px 0 0;
+}
+
+.hero__sculpture-corner--bl {
+  bottom: 12px;
+  left: 12px;
+  border-width: 0 0 1.5px 1.5px;
+}
+
+.hero__sculpture-corner--br {
+  bottom: 12px;
+  right: 12px;
+  border-width: 0 1.5px 1.5px 0;
+}
+
+/* ------------------------------------------------------------
+   RIGHT COLUMN — EDITORIAL METRICS & MANIFESTO
+   ------------------------------------------------------------ */
+.hero__right-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2rem;
+  text-align: right;
+}
+
+.hero__manifesto-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 280px;
+}
+
+.hero__manifesto-glyph {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  box-shadow: 0 0 15px rgba(198, 255, 0, 0.2);
+}
+
+.hero__manifesto-text {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--white);
+  font-weight: 500;
+}
+
+.hero__stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.hero__stat-card {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.75rem;
+}
+
+.hero__stat-num {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+  line-height: 0.9;
+  color: var(--accent);
+}
+
+.hero__stat-desc {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray);
+  max-width: 130px;
+  text-align: left;
+  line-height: 1.35;
+}
+
+/* ============================================================
+   BOTTOM HUD DOCK (Reference: Audio / Case Study Bar)
+   ============================================================ */
+.hero__bottom-hud {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 1.5rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: rgba(16, 16, 16, 0.85);
+  border: 1px solid var(--gray-mid);
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+  gap: 1rem;
+}
+
+.hero__hud-case-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.hero__hud-case-btn:hover {
+  color: var(--accent);
+}
+
+.hero__hud-play-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  color: var(--accent);
+  background: rgba(198, 255, 0, 0.1);
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.hero__hud-case-btn:hover .hero__hud-play-icon {
+  transform: scale(1.15);
+}
+
+.hero__hud-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hero__hud-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.hero__hud-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.hero__hud-dot--1 { background: #C6FF00; }
+.hero__hud-dot--2 { background: #ffffff; }
+.hero__hud-dot--3 { background: #858585; }
+
+.hero__hud-pill-label {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+}
+
+.hero__hud-pill-label strong {
+  color: var(--white);
+}
+
+.hero__hud-years {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+/* ============================================================
+   RESPONSIVE LAYOUT
+   ============================================================ */
+@media (max-width: 1024px) {
+  .hero {
+    min-height: auto;
+    padding-top: 6rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero__main-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 2rem;
+    align-items: center;
+  }
+
+  .hero__left-col {
+    grid-column: 1 / -1;
+  }
+
+  .hero__bio-text {
+    max-width: 580px;
+  }
+
+  .hero__center-col {
+    min-height: 280px;
+    justify-content: flex-start;
+  }
+
+  .hero__sculpture-wrapper {
+    width: clamp(220px, 32vw, 280px);
+    height: clamp(220px, 32vw, 280px);
+  }
+
+  .hero__right-col {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hero__stat-card {
+    justify-content: flex-start;
+  }
+
+  .hero__stat-desc {
+    text-align: left;
+  }
+
+  .hero__floating-cursors {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 5.25rem;
+    padding-bottom: 1.75rem;
+    min-height: auto;
+  }
+
+  .hero__main-content {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .hero__center-col {
+    min-height: auto;
+    justify-content: center;
+    padding: 0.5rem 0;
+  }
+
+  .hero__sculpture-wrapper {
+    width: clamp(200px, 62vw, 250px);
+    height: clamp(200px, 62vw, 250px);
+  }
+
+  .hero__backdrop-text {
+    font-size: clamp(3.5rem, 19vw, 8rem);
+  }
+
+  .hero__monumental-name {
+    font-size: clamp(2.6rem, 13vw, 4.5rem);
+  }
+
+  .hero__bottom-hud {
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 1rem;
+    text-align: center;
+    gap: 0.65rem;
+    margin-top: 2rem;
+  }
+
+  .hero__hud-case-btn {
+    justify-content: center;
+    text-align: left;
+  }
+
+  .hero__stats-list {
+    max-width: 100%;
+  }
+
+  .hero__manifesto-box {
+    max-width: 100%;
+  }
+
+  .hero__stat-card {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hero__stat-desc {
+    max-width: 170px;
+    text-align: right;
+  }
+
+  .hero__bio-text {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__eyebrow {
+    font-size: 0.625rem;
+    letter-spacing: 0.12em;
+  }
+
+  .hero__actions-row {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .hero__primary-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.95rem 1.4rem;
+  }
+
+  .hero__location-badge {
+    justify-content: center;
+  }
+
+  .hero__hud-case-btn {
+    font-size: 0.6875rem;
+  }
+}

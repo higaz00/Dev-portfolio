@@ -1,0 +1,233 @@
+/* ============================================================
+   ABOUT SECTION — Editorial Asymmetric Composition
+   ============================================================ */
+
+.about {
+  position: relative;
+  padding: var(--space-xl) 0;
+  background: var(--black-secondary);
+  overflow: hidden;
+}
+
+.about__bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(8rem, 25vw, 22rem);
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+.about__container {
+  position: relative;
+  padding: 0 var(--gutter);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.about__header {
+  margin-bottom: var(--space-lg);
+}
+
+.about__label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.about__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.about__title .highlight {
+  color: var(--accent);
+}
+
+.about__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.about__text-block {
+  max-width: 560px;
+}
+
+.about__text {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.8;
+  color: var(--gray);
+  margin-bottom: 1.5rem;
+}
+
+.about__text strong {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.about__text .accent-word {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.about__visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.about__quote {
+  position: relative;
+  padding: 2rem;
+  border-left: 2px solid var(--accent);
+  max-width: 400px;
+}
+
+.about__quote-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.about__quote-mark {
+  position: absolute;
+  top: -1rem;
+  left: -0.5rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 4rem;
+  color: var(--accent);
+  opacity: 0.2;
+  line-height: 1;
+}
+
+.about__values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 400px;
+}
+
+.about__value {
+  padding: 1.25rem;
+  border: 1px solid var(--gray-mid);
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+
+.about__value:hover {
+  border-color: var(--accent);
+}
+
+.about__value-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.about__value-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+
+.about__value-desc {
+  font-size: 0.75rem;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+/* Floating decorative elements */
+.about__deco {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about__deco--1 {
+  top: 15%;
+  right: 5%;
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(198, 255, 0, 0.06);
+  border-radius: 50%;
+}
+
+.about__deco--2 {
+  bottom: 10%;
+  left: 10%;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  opacity: 0.3;
+  transform: rotate(45deg);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 968px) {
+  .about__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .about__text-block {
+    max-width: 100%;
+  }
+
+  .about__visual {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .about__quote {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  .about__values {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .about__bg-text {
+    font-size: clamp(4rem, 20vw, 12rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .about__values {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .about__quote {
+    padding: 1.25rem;
+  }
+}
